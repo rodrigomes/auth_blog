@@ -1,17 +1,19 @@
 class UserController < ApplicationController
+  def signup
+  end
 
-	def new
-		@user = User.new
-		
-	end
+  def login
+  end
 
-	def create
-		@user = User.new(params[:user])
+  def logout
+  end
 
-		if @user.save
-			redirect_to root_url, :notice => "Signed up!"
-		else
-			render "new"
-		end
-	end
+  def delete
+  end
+
+  def edit
+  end
+
+  def forgot_password
+  end
 end
