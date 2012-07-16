@@ -1,4 +1,4 @@
-# require 'user_test_helper'
+require 'user_helper_test'
 
 class UserTest < Test::Unit::TestCase
   self.use_instantiated_fixtures  = true
