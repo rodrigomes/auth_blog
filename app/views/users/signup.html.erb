@@ -1,0 +1,20 @@
+<h1>User#signup</h1>
+<p>Find me in app/views/user/signup.html.erb</p>
+
+<%= form_for(@user, :action => "signup") do |f|%>
+
+<label for="user_login">Username</label><br/>
+<%= text_field "user", "login", :size => 20 %><br/>
+
+<label for="user_password">Password</label><br/>
+<%= password_field "user", "password", :size => 20 %><br/>
+
+<label for="user_password_confirmation">Password Confirmation</label><br/>
+<%= password_field "user", "password_confirmation", :size => 20 %><br/>
+
+<label for="user_email">Email</label><br/>
+<%= text_field "user", "email",  :size => 20 %><br/>
+
+<%= submit_tag "Signup" %>
+
+<% end %>

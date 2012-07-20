@@ -1,18 +1,9 @@
 Bookable::Application.routes.draw do
-  get "user/signup"
-
-  get "user/login"
-
-  get "user/logout"
-
-  get "user/delete"
-
-  get "user/edit"
-
-  get "user/forgot_password"
 
   resources :posts
   resources :users
+
+  match 'users/signup' => "users#signup"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
