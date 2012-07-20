@@ -1,2 +1,18 @@
 <h1>User#login</h1>
 <p>Find me in app/views/user/login.html.erb</p>
+
+<%= start_form_tag :action=> "login" %>
+    <h3>Login</h3>  
+
+  <label for="user_login">Login:</label><br/>
+  <%= text_field "user", "login", :size => 20 %><br/>
+
+  <label for="user_password">Password:</label><br/>
+  <%= password_field "user", "password", :size => 20 %><br/>
+
+<%= submit_tag "Submit" %>
+
+    <%= link_to 'Register', :action => 'signup' %> |
+    <%= link_to 'Forgot my password', :action => 'forgot_password' %>      
+
+<%= end_form_tag %>
