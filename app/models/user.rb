@@ -8,7 +8,8 @@ class User < ActiveRecord::Base
   # attr_accessible :email, :password_digest
   validates_length_of :login, :within => 3..40
   validates_length_of :password, :within => 5..40
-  validates_presence_of :login, :email, :password, :password_confirmation, :salt
+  validates_presence_of :login, :email, :password_confirmation, :salt
+  validates_presence_of :password, :on => :create
   validates_uniqueness_of :login, :email
   validates_confirmation_of :password
   validates_format_of :email, :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i, :message => "Invalid email"  
