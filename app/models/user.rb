@@ -5,7 +5,8 @@ class User < ActiveRecord::Base
   attr_accessible :passord, :password_confirmation, :login
   attr_protected :id, :salt
   # attr_accessible :email, :password, :password_confirmation
-  # attr_accessible :email, :password_digest
+  attr_accessible :email, :password
+  # attr_accessible :password_digest
   validates_length_of :login, :within => 3..40
   validates_length_of :password, :within => 5..40
   validates_presence_of :login, :email, :password_confirmation, :salt
@@ -14,7 +15,7 @@ class User < ActiveRecord::Base
   validates_confirmation_of :password
   validates_format_of :email, :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i, :message => "Invalid email"  
 
-  has_secure_password
+  # has_secure_password
   # validates_presence_of :password, :on => :create
 
   def password=(pass)
