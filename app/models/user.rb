@@ -1,4 +1,3 @@
-require 'digest/sha1'
 
 class User < ActiveRecord::Base
   
@@ -18,7 +17,7 @@ class User < ActiveRecord::Base
   # has_secure_password
   # validates_presence_of :password, :on => :create
 
-  def password=(pass)
+  def self.password=(pass)
    @password=pass
    self.salt = User.random_string(10) if !self.salt?
    self.hashed_password = User.encrypt(@password, self.salt)
