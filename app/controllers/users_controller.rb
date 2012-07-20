@@ -15,6 +15,21 @@ class UsersController < ApplicationController
     end
   end
 
+  def create
+    @user = User.new(params[:user])
+
+    respond_to do |format|
+      if @user.save
+        format.html { redirect_to @user, notice: 'Post was successfully created.' }
+        format.json { render json: @post, status: :created, location: @user }
+      else
+        format.html { render action: "new" }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+
   def login
     if request.post?
       if session[:user] = User.authenticate(params[:user][:login], params[:user][:password])
